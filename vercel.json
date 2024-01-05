@@ -1,6 +1,6 @@
 {
   "functions": {
-    "service/crud.service.ts": {
+    "../../service/crud.service.ts": {
       "memory": 1024,
       "includeFiles": "db.json"
     }
