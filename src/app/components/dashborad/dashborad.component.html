@@ -1,0 +1,98 @@
+<div class="max-w-2xl mx-auto mt-12">
+  <div
+    class="navbar bg-blue-500 flex justify-between items-center py-2 px-3 text-white rounded-md"
+  >
+    <a href="" class="text-lg">Task List</a>
+
+    <label for="my_modal_6" class="btn">+</label>
+
+    <!-- Put this part before </body> tag -->
+    <input type="checkbox" id="my_modal_6" class="modal-toggle" />
+    <div class="modal text-black" role="dialog">
+      <div class="modal-box">
+        <h2>Add task</h2>
+        <textarea
+          placeholder="Add task"
+          class="textarea textarea-bordered textarea-md w-full"
+          name="Task"
+          [(ngModel)]="addtaskValue"
+        ></textarea>
+        <div class="modal-action">
+          <button
+            type="button"
+            class="btn bg-blue-500 hover:bg-blue-400 text-white me-2"
+            (click)="addtask()"
+          >
+            Add Task
+          </button>
+          <label
+            for="my_modal_6"
+            class="btn bg-red-500 hover:bg-red-400 text-white"
+            >Close!</label
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="box-content py-2 px-3" *ngFor="let task of taskArray">
+    <div class="content-head">
+      <p class="text-xl text-blue-500">Task :</p>
+    </div>
+    <div class="box-content-body" id="tasks">
+      <div class="card-box flex justify-between items-center">
+        <div class="text-content">
+          <p>
+            {{ task.task_name }}
+          </p>
+        </div>
+        <div class="btn-icon flex justify-between w-20">
+          <button
+            class="flex justify-center items-center bg-red-500 w-8 rounded-sm"
+            (click)="deletetack(task)"
+          >
+            <mat-icon
+              class="text-white"
+              aria-hidden="false"
+              aria-label="Example home icon"
+              fontIcon="delete"
+            ></mat-icon>
+          </button>
+          <label
+            class="bg-blue-500 flex justify-center items-center w-8 rounded-sm"
+            for="my_modal_1"
+          >
+            <mat-icon
+              class="text-white"
+              aria-hidden="false"
+              aria-label="Example home icon"
+              fontIcon="edit"
+            ></mat-icon>
+          </label>
+          <!-- Put this part before </body> tag -->
+          <input type="checkbox" id="my_modal_1" class="modal-toggle" (click)="call(task)" />
+          <div class="modal" role="dialog">
+            <div class="modal-box">
+              <h3 class="font-bold text-lg text-blue-500">Update Task</h3>
+              <textarea
+                placeholder="Update task"
+                class="textarea textarea-bordered textarea-md w-full"
+                name="Task"
+                [(ngModel)]="edittaskValue"
+              ></textarea>
+              <div class="modal-action">
+                <button
+                  type="button"
+                  class="btn bg-blue-500 hover:bg-blue-400 text-white me-2"
+                  (click)="edittask()"
+                >
+                  Update
+                </button>
+                <label for="my_modal_1" class="btn bg-red-500 hover:bg-red-400 text-white">Close!</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
