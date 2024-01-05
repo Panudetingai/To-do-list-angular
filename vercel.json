@@ -1,14 +1,18 @@
 {
-  "functions": {
-    "../../service/crud.service.ts": {
-      "memory": 1024,
-      "includeFiles": "db.json"
-    }
-  },
-  "rewrites": [
+  "version": 2,
+  "builds": [
     {
-      "source": "/(.*)",
-      "destination": "service/crud.service.ts"
+      "src": "server.js",
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": ["db.json"]
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "server.js"
     }
   ]
 }
